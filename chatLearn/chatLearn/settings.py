@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'chatLearn.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chatlearn',
+        'NAME': 'chatLearn',
         'USER': 'codeak',
         'PASSWORD': '5334',
         'HOST': 'localhost',
