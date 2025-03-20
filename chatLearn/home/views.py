@@ -1,9 +1,18 @@
 from django.shortcuts import render, HttpResponse
+from .models import Students, Course
+from .serializers import StudentsSerializer, CourseSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-# Create your views here
 
-def home(request):
-    return HttpResponse("Hello world")
+@api_view(['GET'])
+def student_list(request):
+    students = Students.objects.all()
+    serializer = StudentsSerializer(students, many=True)
+    return Response(serializer.data)
 
-def index(request):
-    return render(request, 'home/index.html' )
+@api_view(['GET'])
+def course_list(request):
+    courses = Course.objects.all()
+    serializer = CourseSerializer(courses, many=True)
+    return Response(serializer.data)
