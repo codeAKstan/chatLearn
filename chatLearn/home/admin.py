@@ -6,3 +6,6 @@ from .models import Students, Course
 class StudentAdmin(admin.ModelAdmin):
     list_display = 'first_name', 'last_name'
 
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = 'name', 'code'
